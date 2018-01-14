@@ -2,7 +2,7 @@ let AlexaAppServer = require('alexa-app-server');
 
 let instance = AlexaAppServer.start({
     server_root: __dirname,
-    port: processors.env.,
+    port: processors.env.PORT,
     preRequest: function(json, req, res) {
         console.log("preRequest fired");
         json.userDetails = { "name": "Andrew Solomon" };
