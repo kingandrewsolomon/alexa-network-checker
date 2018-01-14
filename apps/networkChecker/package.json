@@ -1,0 +1,15 @@
+{
+  "name": "network_checker",
+  "version": "1.0.0",
+  "description": "A networkChecker Alexa app",
+  "main": "index.js",
+  "author": "Andrew Solomon",
+  "license": "ISC",
+  "alexa": {
+    "applicationId": "amzn1.ask.skill.9e9b8742-9c23-4372-a71c-22fe1625322a"
+  },
+  "dependencies": {
+    "alexa-app": "^4.2.0",
+    "speedtest-net": "^1.4.1"
+  }
+}
