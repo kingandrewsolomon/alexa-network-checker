@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/kingandrewsolomon/alexa-network-checker/issues"
   },
-  "homepage": "https://github.com/kingandrewsolomon/alexa-network-checker#readme"
+  "homepage": "https://github.com/kingandrewsolomon/alexa-network-checker#readme",
+  "dependencies": {
+    "alexa-app-server": "^3.0.1"
+  }
 }
