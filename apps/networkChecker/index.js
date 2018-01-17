@@ -19,7 +19,7 @@ app.intent('TestIntent', {
 });
 
 function delay() {
-    return new Promise(() => {
+    return new Promise((resolve) => {
         setTimeout(resolve("hello"), 1000);
     });
 }
