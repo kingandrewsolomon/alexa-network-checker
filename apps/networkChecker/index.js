@@ -29,7 +29,7 @@ app.intent('GetDownloadIntent', {
     return downloadChecker().then(
         (data) => {
             let download = Math.round(data);
-            res.say(`Your download speed is, ${download} megabits per second`);        
+            return res.say(`Your download speed is, ${download} megabits per second`);        
         });
 });
 
