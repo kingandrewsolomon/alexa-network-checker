@@ -49,13 +49,13 @@ app.intent('GetStatusIntent', {
 
 module.exports = app;
 
-async function internetChecker() {
+function internetChecker() {
     return new Promise((resolve, reject) => {
         test.on('data', data => { resolve(data) });
     });
 }
 
-async function getInternetSpeed() {
+function getInternetSpeed() {
     return new Promise((resolve, reject) => {
         internetChecker().then((data) => {
             let download = data.speeds.download;
@@ -67,21 +67,21 @@ async function getInternetSpeed() {
     });
 }
 
-async function downloadChecker() {
+function downloadChecker() {
     return new Promise((resolve, reject) => {
         let test = speedTest({maxTime: 5000});
         test.on('downloadSpeed', data => { resolve(data) });
     });
 }
 
-async function uploadChecker() {
+function uploadChecker() {
     return new Promise((resolve, reject) => {
         let test = speedTest({maxTime: 5000});
         test.on('uploadSpeed', data => { resolve(data) });
     });
 }
 
-async function pingChecker() {
+function pingChecker() {
     return new Promise((resolve, reject) => {
         let test = speedTest({maxTime: 5000});
         test.on('data', data => { resolve(data.server.ping) });
