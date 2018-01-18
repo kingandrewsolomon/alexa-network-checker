@@ -9,20 +9,6 @@ app.launch(function(req, res) {
     'I can check the ping, the download speed, the upload speed, or all three');
 });
 
-app.intent('TestIntent', {
-    "utterances": ["test"]
-}, function(req, res) {
-    delay().then((data) => {
-        res.say(data);
-    });
-});
-
-function delay() {
-    return new Promise((resolve) => {
-        setTimeout(resolve("hello"), 1000);
-    });
-}
-
 app.intent('GetDownloadIntent', {
     "utterances": [ "check download speed", "check download", "download"]
 }, function(req, res) {
@@ -39,7 +25,7 @@ app.intent('GetUploadIntent', {
     return uploadChecker().then(
         (data) => {
             let upload = Math.round(data);
-            res.say(`Your upload speed is, ${upload} megabits per second`);
+            return res.say(`Your upload speed is, ${upload} megabits per second`);
         });
 });
 
@@ -48,7 +34,7 @@ app.intent('GetPingIntent', {
 }, function(req, res) {
     return pingChecker().then(
         (ping) => {
-            res.say(`Your ping is, ${ping} milliseconds`);
+            return res.say(`Your ping is, ${ping} milliseconds`);
         });
 });
 
@@ -57,7 +43,7 @@ app.intent('GetStatusIntent', {
 }, function(req, res) {
     return getInternetSpeed().then(
         (data) => {
-            res.say(`Your ping status is, ${data.ping} milliseconds. Your download speed is, ${data.download} megabits per second. Your upload speed is, ${data.upload} megabits per second`);
+            return res.say(`Your ping status is, ${data.ping} milliseconds. Your download speed is, ${data.download} megabits per second. Your upload speed is, ${data.upload} megabits per second`);
         }); 
 });
 
