@@ -3,7 +3,6 @@ const speedTest = require('speedtest-net');
 
 let app = new alexa.app('network_checker');
 app.id = require('./package.json').alexa.applicationId;
-let test = speedTest({maxTime: 5000});
 
 app.launch(function(req, res) {
     res.say('Welcome to the Alexa Internet Checker. ' +
@@ -84,18 +83,21 @@ async function getInternetSpeed() {
 
 async function downloadChecker() {
     return new Promise((resolve, reject) => {
+        let test = speedTest({maxTime: 5000});
         test.on('downloadSpeed', data => { resolve(data) });
     });
 }
 
 async function uploadChecker() {
     return new Promise((resolve, reject) => {
+        let test = speedTest({maxTime: 5000});
         test.on('uploadSpeed', data => { resolve(data) });
     });
 }
 
 async function pingChecker() {
     return new Promise((resolve, reject) => {
+        let test = speedTest({maxTime: 5000});
         test.on('data', data => { resolve(data.server.ping) });
     });
 }
