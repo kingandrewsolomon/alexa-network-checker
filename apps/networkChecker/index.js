@@ -27,19 +27,17 @@ function delay() {
 app.intent('GetDownloadIntent', {
     "utterances": [ "check download speed", "check download", "download"]
 }, function(req, res) {
-    downloadChecker().then(
+    return downloadChecker().then(
         (data) => {
             let download = Math.round(data);
             res.say(`Your download speed is, ${download} megabits per second`);        
         });
-    setTimeout(function() {console.log("make it right")}, 8000);
-    res.say('helo');
 });
 
 app.intent('GetUploadIntent', {
     "utterances": ["check upload speed", "check upload", "upload"]
 }, function(req, res) {
-    uploadChecker().then(
+    return uploadChecker().then(
         (data) => {
             let upload = Math.round(data);
             res.say(`Your upload speed is, ${upload} megabits per second`);
@@ -49,7 +47,7 @@ app.intent('GetUploadIntent', {
 app.intent('GetPingIntent', {
     "utterances": ["check ping status", "check ping", "ping"]
 }, function(req, res) {
-    pingChecker().then(
+    return pingChecker().then(
         (ping) => {
             res.say(`Your ping is, ${ping} milliseconds`);
         });
@@ -58,7 +56,7 @@ app.intent('GetPingIntent', {
 app.intent('GetStatusIntent', {
     "utterances": ["check internet status", "check internet", "check status", "check internet strength"]
 }, function(req, res) {
-    getInternetSpeed().then(
+    return getInternetSpeed().then(
         (data) => {
             res.say(`Your ping status is, ${data.ping} milliseconds. Your download speed is, ${data.download} megabits per second. Your upload speed is, ${data.upload} megabits per second`);
         }); 
