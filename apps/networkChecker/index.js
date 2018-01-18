@@ -62,7 +62,7 @@ async function getInternetSpeed() {
             let upload = data.speeds.upload;
             let ping = data.server.ping;
 
-            reslove({download, upload, ping});
+            resolve({download, upload, ping});
         });
     });
 }
